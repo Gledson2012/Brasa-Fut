@@ -1,0 +1,6 @@
+{
+  "name": "Futebol",
+  "description": "Aplicativo de futebol com partidas, times e classificações.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
