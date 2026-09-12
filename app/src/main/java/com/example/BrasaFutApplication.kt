@@ -23,8 +23,15 @@ class BrasaFutApplication : Application() {
     lateinit var userProfilePreferences: com.example.data.local.UserProfilePreferences
         private set
     
+
+    companion object {
+        lateinit var appContext: android.content.Context
+            private set
+    }
+
     override fun onCreate() {
         super.onCreate()
+        appContext = this.applicationContext
         
         // Configura e inicializa a coleta do Firebase Crashlytics
         com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)

@@ -5,8 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [FavoriteTeam::class, FavoriteMatch::class], version = 1, exportSchema = false)
+@Database(entities = [FavoriteTeam::class, FavoriteMatch::class, CacheEntity::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun cacheDao(): CacheDao
     abstract fun favoritesDao(): FavoritesDao
 
     companion object {
@@ -19,7 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "brasafut_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }
